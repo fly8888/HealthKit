@@ -99,6 +99,35 @@
         self.inputField.text = [NSString stringWithFormat:@"%.f",value];
     }];
     
+    
+    
+    //获取十天内的步数
+    //日期在十天之内:
+    NSDate *endDate = [NSDate date];
+    NSTimeInterval timeInterval= [endDate timeIntervalSinceReferenceDate];
+    timeInterval -=3600*24*10;
+    NSDate *beginDate = [NSDate dateWithTimeIntervalSinceReferenceDate:timeInterval];
+    //对coredata进行筛选(假设有fetchRequest)
+    NSPredicate *predicate_date =
+    [NSPredicate predicateWithFormat:@"endDate >= %@ AND startDate <= %@", beginDate,endDate];
+    
+    [[HealthManager shareInstance] getStepCount:predicate_date completionHandler:^(double value, NSError *error) {
+        NSLog(@"10天行走步数 = %.2lf",value);
+    }];
+    
+    
+    
+    
+    //日期在昨天之内:
+//    NSDate *endDate = [NSDate date];
+//    NSTimeInterval timeInterval= [endDate timeIntervalSinceReferenceDate];
+//    timeInterval -=(endDate.hour*3600+endDate.minute);   //今天凌晨
+//    endDate = [NSDate dateWithTimeIntervalSinceReferenceDate:timeInterval];
+//    timeInterval -=3600*24*1+(endDate.hour*3600+endDate.minute);    //昨天凌晨
+//    NSDate *beginDate = [NSDate dateWithTimeIntervalSinceReferenceDate:timeInterval];
+//    //对coredata进行筛选(假设有fetchRequest)
+//    NSPredicate *predicate_date =
+//    [NSPredicate predicateWithFormat:@"endDate >= %@ AND startDate <= %@", beginDate,endDate];
 }
 
 
