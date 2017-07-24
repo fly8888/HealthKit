@@ -176,6 +176,7 @@
 				TargetAttributes = {
 					613FCB531BD12C67008779CE = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = RMSS829LQ5;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
 								enabled = 1;
@@ -372,9 +373,10 @@
 				CODE_SIGN_ENTITLEMENTS = wechatplus/wechatplus.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = RMSS829LQ5;
 				INFOPLIST_FILE = wechatplus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.STKJWX.suiTang;
+				PRODUCT_BUNDLE_IDENTIFIER = com.STKJWX.suiTang.x;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -387,9 +389,10 @@
 				CODE_SIGN_ENTITLEMENTS = wechatplus/wechatplus.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = RMSS829LQ5;
 				INFOPLIST_FILE = wechatplus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.STKJWX.suiTang;
+				PRODUCT_BUNDLE_IDENTIFIER = com.STKJWX.suiTang.x;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
