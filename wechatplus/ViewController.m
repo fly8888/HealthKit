@@ -36,8 +36,8 @@
 
 - (IBAction)buttonClicked:(id)sender {
 
-    [self getStep];
-    return;
+  //  [self getStep];
+   // return;
     
     
     [self.inputField resignFirstResponder];
@@ -94,9 +94,12 @@
     }];
     
     [[HealthManager shareInstance] getRealTimeStepCountCompletionHandler:^(double value, NSError *error) {
-        
-        NSLog(@"当天行走步数 = %.2lf",value);
-        self.inputField.text = [NSString stringWithFormat:@"%.f",value];
+        if(!error)
+        {
+            NSLog(@"当天行走步数 = %.2lf",value);
+            self.inputField.text = [NSString stringWithFormat:@"%.f",value];
+
+        }
     }];
     
     
@@ -112,22 +115,12 @@
     [NSPredicate predicateWithFormat:@"endDate >= %@ AND startDate <= %@", beginDate,endDate];
     
     [[HealthManager shareInstance] getStepCount:predicate_date completionHandler:^(double value, NSError *error) {
+        if(!error)
         NSLog(@"10天行走步数 = %.2lf",value);
     }];
     
     
-    
-    
-    //日期在昨天之内:
-//    NSDate *endDate = [NSDate date];
-//    NSTimeInterval timeInterval= [endDate timeIntervalSinceReferenceDate];
-//    timeInterval -=(endDate.hour*3600+endDate.minute);   //今天凌晨
-//    endDate = [NSDate dateWithTimeIntervalSinceReferenceDate:timeInterval];
-//    timeInterval -=3600*24*1+(endDate.hour*3600+endDate.minute);    //昨天凌晨
-//    NSDate *beginDate = [NSDate dateWithTimeIntervalSinceReferenceDate:timeInterval];
-//    //对coredata进行筛选(假设有fetchRequest)
-//    NSPredicate *predicate_date =
-//    [NSPredicate predicateWithFormat:@"endDate >= %@ AND startDate <= %@", beginDate,endDate];
+
 }
 
 
@@ -146,8 +139,7 @@
                     [self getStep];
                 }
             
-            // Handle success in your app here.
-            //            [self setUpHealthStoreForTabBarControllers];
+         
         }];
     }
 }
